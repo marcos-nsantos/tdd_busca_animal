@@ -3,11 +3,19 @@ import os
 from django.test import LiveServerTestCase
 from selenium import webdriver
 
+from animais.models import Animal
+
 
 class AnimaisTestCase(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Edge(executable_path=f'{os.getcwd()}/msedgedriver.exe')
+        self.animal = Animal.objects.create(
+            nome_animal='Leão',
+            predador='Sim',
+            venenoso='Não',
+            domestico='Não'
+        )
 
     def tearDown(self):
         self.browser.quit()

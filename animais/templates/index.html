@@ -10,9 +10,11 @@
     <input type="text" id="buscar_animal" placeholder="Exemplo: Leão, Uso" name="buscar">
     <button type="submit">Pesquisar</button>
 </form>
-<div class="result-description"></div>
-<div class="result-description"></div>
-<div class="result-description"></div>
-<div class="result-description"></div>
+{% for caracteristicas in caracteristicas %}
+    <div class="result-description">{{ caracteristicas.nome_animal }}</div>
+    <div class="result-description">{{ caracteristicas.predador }}</div>
+    <div class="result-description">{{ caracteristicas.venenoso }}</div>
+    <div class="result-description">{{ caracteristicas.domestico }}</div>
+{% endfor %}
 </body>
 </html>
